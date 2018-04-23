@@ -3,6 +3,7 @@ package com.stockfactory.pageobject.adminpage;
 import com.stockfactory.pageobject.WarpPage;
 import com.stockfactory.pageobject.adminpage.customers.CustomersAllPage;
 import com.stockfactory.pageobject.adminpage.customers.CustomersOnlinePage;
+import com.stockfactory.pageobject.adminpage.marketing.ReviewsPage;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.By;
@@ -18,8 +19,13 @@ public class MenuAdminPage extends WarpPage{
     public By customersAll = By.xpath("//*/li[@id='menu-magento-customer-customer']//*/span[contains(text(), 'All Customers')]");
     public By customersOnline = By.xpath("//*/li[@id='menu-magento-customer-customer']//*/span[contains(text(), 'Online')]");
     public By helpDeskMX = By.xpath("//*/li[@id='menu-magento-customer-customer']//*/span[contains(text(), 'Help Desk')]");
-    public By spinner = By.className("admin__data-grid-loading-mask");
+
+    //Menu merketing
+    public By marketingMenu = By.xpath("//li[@id='menu-magento-backend-marketing']/*/span[contains(text(), 'Marketing')]/..");
+    public By marketingReviews = By.xpath("//*[@id='menu-magento-backend-marketing']//*[contains(text(), 'Reviews')]/..");
+
     //
+    public By spinner = By.className("admin__data-grid-loading-mask");
 
     //ActionsList
     public By buttonCloseActionPopUp = By.xpath("//*/div[@class='modal-inner-wrap']/*/button[@class='action-close']')]");
@@ -41,6 +47,11 @@ public class MenuAdminPage extends WarpPage{
     public CustomersOnlinePage navigateToCustomersOnlinePage(){
         click(customersMenu);
         return new CustomersOnlinePage(driver);
+    }
+
+    public ReviewsPage navigateToReviewsPage(){
+        click(marketingReviews);
+        return new ReviewsPage(driver);
     }
 
 }
