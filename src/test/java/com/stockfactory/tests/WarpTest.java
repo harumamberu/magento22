@@ -1,9 +1,11 @@
 package com.stockfactory.tests;
 
 import com.stockfactory.pageobject.MainPage;
+import com.stockfactory.pageobject.common.Header;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.concurrent.TimeUnit;
@@ -34,14 +36,34 @@ public class WarpTest {
                 .deleteUser("testname");
     }
 
-
-    public void deleteAllTestNameUsers(){
-        /*mainPage = new MainPage(driver).open();*/
-        mainPage.openAdminLoginPage()
-                .loginAs()
-                .navigateToCustomersAllPage()
-                .deleteAllUsersByString("testname");
+//HELPERS DEL TEST DATA
+    public void regTestNameUser(){
+        mainPage.registrationDefault()
+                .assertTrueIsDisplayed(Header.textWelcome);
     }
 
+    public void deleteAllUsersByTestName(){
+        /*mainPage = new MainPage(driver).open();*/
+        try{
+            mainPage.openAdminLoginPage()
+                    .loginAs()
+                    .navigateToCustomersAllPage()
+                    .deleteAllUsersByString("testname");
+        }catch (WebDriverException e){
+            e.printStackTrace();
+        }
+    }
 
+    public void deleteAllReviewsByTestNickname(){
+        try{
+            mainPage.openAdminLoginPage()
+                    .loginAs()
+                    .navigateToReviewsPage()
+                    .searchByNickname("testnick")
+                    .selectAllReviews()
+                    .deleteSelectedReviews();
+        }catch (WebDriverException e){
+            e.printStackTrace();
+        }
+    }
 }

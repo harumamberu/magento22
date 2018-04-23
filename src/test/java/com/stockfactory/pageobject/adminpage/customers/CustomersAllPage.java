@@ -1,6 +1,5 @@
 package com.stockfactory.pageobject.adminpage.customers;
 
-import com.stockfactory.pageobject.WarpPage;
 import com.stockfactory.pageobject.adminpage.MenuAdminPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,10 +9,11 @@ public class CustomersAllPage extends MenuAdminPage{
     private By fieldSearchKeyword = By.xpath("//*/input[@placeholder='Search by keyword']");
     //private By buttonSearchKeyword = By.xpath("//*/button[@type='button']/preceding-sibling::input[@placeholder='Search by keyword']");
     private By buttonSearchKeyword = By.xpath("//button[@type='button'and@class='action-submit']/span[contains(text(), 'Search')]/..");
-    private By buttonActionSelect = By.xpath("//button[@class='action-select']");
     private By dropdownMultiSelect = By.xpath("//*[@data-role='grid']//button[@class='action-multicheck-toggle']");
-    private By buttonMultiSelectAll = By.xpath("//*[@id='container']/div/div[5]/table/thead/tr/th[1]/div/ul/li[1]/span");
+    private By dropdownMultiSelectAll = By.xpath("//*[@id='container']/div/div[5]/table/thead/tr/th[1]/div/ul/li[1]/span");
     String table = "//table[@*='grid']";
+
+    private By buttonActionSelect = By.xpath("//button[@class='action-select']");
     private By buttonActionListDelete = By.xpath("//div[@class='action-menu-items']//*[contains(text(), 'Delete')]");
     private By buttonActionListEdit = By.xpath("//div[@class='action-menu-items']//*[contains(text(), 'Edit')]");
     private By buttonActionListAssignCustomerGroup = By.xpath("//div[@class='action-menu-items']//*[contains(text(), 'Assign a Customer Group')]");
@@ -43,7 +43,7 @@ public class CustomersAllPage extends MenuAdminPage{
         invisibilityOf(spinner);
         searchByKeyword(string);
         click(dropdownMultiSelect);
-        click(buttonMultiSelectAll);
+        click(dropdownMultiSelectAll);
         driver.findElement(checkboxRowUser).isSelected();
         click(buttonActionSelect);
         click(buttonActionListDelete);

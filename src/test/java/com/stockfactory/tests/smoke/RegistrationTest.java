@@ -28,7 +28,7 @@ public class RegistrationTest extends WarpTest{
     //@After
     public void delAllUsers(){
         try{
-            deleteAllTestNameUsers();
+            deleteAllUsersByTestName();
         }catch(TimeoutException e){
 
         }
