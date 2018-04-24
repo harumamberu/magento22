@@ -1,8 +1,6 @@
-package com.stockfactory.pageobject.common;
+package com.stockfactory.pageobject.interfaces;
 
-import com.stockfactory.pageobject.WarpPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public interface Header{
     int pi = 3;

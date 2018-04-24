@@ -1,8 +1,7 @@
 package com.stockfactory.tests.smoke;
 
-import com.stockfactory.pageobject.common.Header;
+import com.stockfactory.pageobject.interfaces.Header;
 import com.stockfactory.tests.WarpTest;
-import org.junit.Assert;
 import org.junit.Test;
 
 public class AuthorizationTest extends WarpTest {

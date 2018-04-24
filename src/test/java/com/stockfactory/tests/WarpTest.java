@@ -1,7 +1,7 @@
 package com.stockfactory.tests;
 
 import com.stockfactory.pageobject.MainPage;
-import com.stockfactory.pageobject.common.Header;
+import com.stockfactory.pageobject.interfaces.Header;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
@@ -36,7 +36,7 @@ public class WarpTest {
                 .deleteUser("testname");
     }
 
-//HELPERS DEL TEST DATA
+//HELPERS DELETING TEST DATA
     public void regTestNameUser(){
         mainPage.registrationDefault()
                 .assertTrueIsDisplayed(Header.textWelcome);

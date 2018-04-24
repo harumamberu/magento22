@@ -40,13 +40,18 @@ public abstract class WarpPage{
                 .executeScript("arguments[0].click();", driver.findElement(by));
     }
 
+    public void clickJS(By by){
+        ((JavascriptExecutor) driver)
+                .executeScript("arguments[0].click();", driver.findElement(by));
+    }
+
     public void visibilityOf(By locator){
         wait = new WebDriverWait(driver, 5);
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(locator)));
     }
 
     public void invisibilityOf(By locator){
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
 

@@ -1,4 +1,4 @@
-package com.stockfactory.pageobject.common;
+package com.stockfactory.pageobject.interfaces;
 
 import org.openqa.selenium.By;
 

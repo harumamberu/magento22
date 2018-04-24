@@ -1,8 +1,8 @@
 package com.stockfactory.pageobject.categories;
 
 import com.stockfactory.pageobject.MainPage;
-import com.stockfactory.pageobject.common.Header;
-import com.stockfactory.pageobject.common.NavigationBar;
+import com.stockfactory.pageobject.interfaces.Header;
+import com.stockfactory.pageobject.interfaces.NavigationBar;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

@@ -21,7 +21,8 @@ public class MenuAdminPage extends WarpPage{
     public By helpDeskMX = By.xpath("//*/li[@id='menu-magento-customer-customer']//*/span[contains(text(), 'Help Desk')]");
 
     //Menu merketing
-    public By marketingMenu = By.xpath("//li[@id='menu-magento-backend-marketing']/*/span[contains(text(), 'Marketing')]/..");
+    public By marketingMenu = By.xpath("//li[@id='menu-magento-backend-marketing']/a");
+    //public By marketingMenu = By.xpath("//li[@id='menu-magento-backend-marketing']/*/span[contains(text(), 'Marketing')]/..");
     public By marketingReviews = By.xpath("//*[@id='menu-magento-backend-marketing']//*[contains(text(), 'Reviews')]/..");
 
     //
@@ -50,6 +51,7 @@ public class MenuAdminPage extends WarpPage{
     }
 
     public ReviewsPage navigateToReviewsPage(){
+        click(marketingMenu);
         click(marketingReviews);
         return new ReviewsPage(driver);
     }

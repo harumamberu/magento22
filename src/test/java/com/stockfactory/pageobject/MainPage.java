@@ -3,8 +3,8 @@ package com.stockfactory.pageobject;
 import com.stockfactory.pageobject.categories.AllCategoriesPage;
 import com.stockfactory.pageobject.checkout.CartPage;
 import com.stockfactory.pageobject.checkout.CheckoutPage;
-import com.stockfactory.pageobject.common.Header;
-import com.stockfactory.pageobject.common.NavigationBar;
+import com.stockfactory.pageobject.interfaces.Header;
+import com.stockfactory.pageobject.interfaces.NavigationBar;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,7 +32,7 @@ public class MainPage extends WarpPage implements Header, NavigationBar{
     public void checkInfoPopUp(){
         try{
             if(isClickable(buttonCloseInfoPopUp, driver)){
-                click(buttonCloseInfoPopUp);
+                clickJS(buttonCloseInfoPopUp);
             }
         }catch (WebDriverException e){
             e.printStackTrace();
@@ -102,7 +102,7 @@ public class MainPage extends WarpPage implements Header, NavigationBar{
     }
 
     public MainPage logOut(){
-        popUpCloseIfDisplayed(buttonCloseInfoPopUp);
+        checkInfoPopUp();
         click(linkLogOut);
         return this;
     }
